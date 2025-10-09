@@ -1,0 +1,313 @@
+body {
+  background-color: #f0f0f0 !important;
+}
+.nav-link:hover {
+  color: #e9b808;
+}
+
+.logo {
+  max-height: 60px; /* bigger logo than before */
+  width: auto;      /* keeps aspect ratio */
+}
+.banner-section{
+  background-color: blue ;
+  height: 50px;
+}
+
+/* Animate dropdown with slide and fade effect */
+.dropdown-menu.animate-dropdown {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: block;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.dropdown-menu.animate-dropdown.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+.carousel-inner img {
+  /* object-fit: cover; */
+  max-height: 450px;
+}
+.pages img{
+  max-height: 350px;
+}
+.pages{
+  position: relative;
+  overflow: hidden;
+}
+.black-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* black with 50% transparency */
+  z-index: 1;
+}
+
+.overlay-text {
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;              /* or any other contrasting color */
+  font-size: 2rem;           /* adjust as needed */
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* for better readability */
+}
+
+a.quick-link {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+a.quick-link:hover {
+  color: #e9b808 !important;
+}
+
+.hero-banner {
+  position: relative;
+  background: url('../imgs/About\ us\ 1.jpg') center/cover no-repeat;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  padding-left: 8%;
+}
+
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3); /* dark overlay */
+}
+
+.hero-content {
+  position: relative;
+  color: white;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 550px;
+  text-align: right; /* Align text to the right */
+  margin-left: auto; /* Push content to the right side */
+  margin-right: 8%;  /* Add spacing from the right edge */
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  border: 1px solid black;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  background: black;
+  color: white;
+}
+/* Hero Banner */
+.hero-img {
+  max-height: 420px;
+  object-fit: cover;
+}
+.overlay-text {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Modern Blog Cards */
+.modern-card {
+  border: none;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+.modern-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Card Image */
+.card-img-wrapper img {
+  transition: transform 0.4s ease;
+}
+.modern-card:hover img {
+  transform: scale(1.07);
+}
+
+/* Glass Body */
+.glass-body {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 1.2rem;
+  transition: background 0.3s ease;
+}
+.glass-body:hover {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Text */
+.glass-body h5 {
+  color: #111;
+}
+.glass-body p {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Button */
+.btn-outline-dark {
+  border: 1px solid #222;
+  color: #222;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+.btn-outline-dark:hover {
+  background: #222;
+  color: #fff;
+}
+.card-img-top{
+  height: 200px;
+}
+
+.services-section {
+  background: #f8f9fa;
+  padding: 60px 0;
+}
+.services-section h2 {
+  font-weight: bold;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #222;
+}
+
+.services-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.services-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.service-box {
+  background: #fff;
+  padding: 30px 20px;
+  margin: 10px;
+  width: 30%;
+  height: 300px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  min-width: 100%; /* mobile default */
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+.service-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+.service-icon {
+  font-size: 40px;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+.service-box h5 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: 600;
+}
+.service-box p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Responsive widths */
+@media(min-width: 768px) {
+  .service-box { min-width: 50%; }
+}
+@media(min-width: 992px) {
+  .service-box { min-width: 33.3333%; }
+}
+
+/* Floating arrows */
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.carousel-arrow {
+  pointer-events: all;
+  background-color: transparent; /* no background */
+  border: none;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  color: #007bff ; /* arrow color */
+  font-size: 1.5rem ; /* slightly larger icon */
+}
+
+.carousel-arrow:hover {
+  transform: scale(1.2);
+  color: #0056b3; /* darker on hover */
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color:#007bff;
+  border-radius: 50%;
+  padding: 12px;
+}
+
+.read-more-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 18px;
+    background-color: #007bff; /* Primary color */
+    color: #fff;
+    border-radius: 25px; /* Rounded edges */
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth hover & scale */
+  }
+
+  .read-more-btn:hover {
+    background-color: #0056b3; /* Darker on hover */
+    transform: scale(1.1); /* Slight bounce/scale effect */
+  }
