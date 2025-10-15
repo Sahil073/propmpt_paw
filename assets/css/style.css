@@ -1,8 +1,40 @@
+* {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #f0f0f0 !important;
+  background-color: #f8f9fa !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: #212529;
+}
+
+section {
+  opacity: 1;
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .nav-link:hover {
   color: #e9b808;
+  transition: color 0.3s ease;
+}
+
+.navbar {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .logo {
@@ -31,8 +63,14 @@ body {
   pointer-events: auto;
 }
 .carousel-inner img {
-  /* object-fit: cover; */
-  max-height: 450px;
+  object-fit: cover;
+  max-height: 500px;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.carousel-inner img:hover {
+  filter: brightness(1);
 }
 .pages img{
   max-height: 350px;
@@ -71,10 +109,27 @@ body {
 a.quick-link {
   color: white !important;
   text-decoration: none !important;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 5px;
 }
 
 a.quick-link:hover {
   color: #e9b808 !important;
+  padding-left: 10px;
+}
+
+a.quick-link::before {
+  content: '▸';
+  position: absolute;
+  left: -10px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+a.quick-link:hover::before {
+  opacity: 1;
+  left: 0;
 }
 
 .hero-banner {
@@ -135,17 +190,34 @@ a.quick-link:hover {
 /* Modern Blog Cards */
 .modern-card {
   border: none;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
 }
 .modern-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 123, 255, 0.2);
+}
+
+.modern-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.modern-card:hover::before {
+  transform: scaleX(1);
 }
 
 /* Card Image */
@@ -181,14 +253,33 @@ a.quick-link:hover {
 
 /* Button */
 .btn-outline-dark {
-  border: 1px solid #222;
+  border: 2px solid #222;
   color: #222;
   font-weight: 500;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
-.btn-outline-dark:hover {
+
+.btn-outline-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
   background: #222;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.btn-outline-dark:hover {
   color: #fff;
+  border-color: #222;
+}
+
+.btn-outline-dark:hover::before {
+  left: 0;
 }
 .card-img-top{
   height: 200px;
@@ -216,26 +307,33 @@ a.quick-link:hover {
 }
 
 .service-box {
-  background: #fff;
+  background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
   padding: 30px 20px;
   margin: 10px;
   width: 30%;
   height: 300px;
   border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  min-width: 100%; /* mobile default */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  min-width: 100%;
   flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
 }
 .service-box:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  border-color: #007bff;
 }
 
 .service-icon {
-  font-size: 40px;
+  font-size: 48px;
   color: #007bff;
   margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.service-box:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 .service-box h5 {
   font-size: 1.2rem;
@@ -298,16 +396,20 @@ a.quick-link:hover {
 .read-more-btn {
     display: inline-block;
     margin-top: 15px;
-    padding: 8px 18px;
-    background-color: #007bff; /* Primary color */
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
     color: #fff;
-    border-radius: 25px; /* Rounded edges */
+    border-radius: 25px;
     text-decoration: none;
     font-size: 0.9rem;
-    transition: background-color 0.3s, transform 0.2s; /* Smooth hover & scale */
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,123,255,0.3);
   }
 
   .read-more-btn:hover {
-    background-color: #0056b3; /* Darker on hover */
-    transform: scale(1.1); /* Slight bounce/scale effect */
+    background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 16px rgba(0,123,255,0.4);
+    color: #fff;
   }
